@@ -25,20 +25,16 @@ const Home = () => {
         </span>
       </td>
       <td>{team.teamName}</td>
-      <td>{teamData.filter(t=>t.hostTeamId === t.id || t.guestTeamId === t.id).length}</td>
-      <td>{teamData.filter(t=>t.matchWonBy === t.id).length}</td>
+      <td>{team.matchesPlayed}</td>
+      <td>{team.matchesWon}</td>
       <td>0</td>
-      <td>{teamData.filter(t=>t.matchWonBy === t.id).length}</td>
+      <td>{team.matchesLost}</td>
       <td>
         <a href="#editEmployeeModal" className="edit" data-toggle="modal">
-          <i className="material-icons" data-toggle="tooltip" title="Edit">
-            &#xE254;
-          </i>
+          Edit &nbsp;
         </a>
-        <a href="#deleteEmployeeModal" className="delete" data-toggle="modal">
-          <i className="material-icons" data-toggle="tooltip" title="Delete">
-            &#xE872;
-          </i>
+        <a href="#deleteEmployeeModal" className="edit" data-toggle="modal">
+          Delete
         </a>
       </td>
     </tr>
