@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/d89191fe-de47-46e6-a3b8-3760382eb0ad/resourceGroups/FremontCricketDevelopment/providers/Microsoft.Web/sites/fremontcricket",
+    "appService.deploySubpath": "."
+}

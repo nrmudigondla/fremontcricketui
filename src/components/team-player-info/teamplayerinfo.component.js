@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
-import "./home.component.css";
-import AddTeamModalPopup from "../modal-popup/add-team-modal.component";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const Home = () => {
-  const [modalShow, setModalShow] = React.useState(false);
+const TeamPlayerInfo = () => {
   const [teamData, setTeamData] = React.useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch("https://localhost:7175/api/Team")
+    fetch("https://localhost:7175/api/Player?Id=" + id)
       .then((res) => {
         return res.json();
       })
@@ -20,26 +18,13 @@ const Home = () => {
   const listItems = teamData.map((team) => (
     <tr key={team.id}>
       <td>
-        <span className="custom-checkbox">
-          <input type="checkbox" id="checkbox1" name="options[]" value="1" />
-          <label htmlFor="checkbox1"></label>
-        </span>
-      </td>
-      <td>
-        <Link to={"/team/" + team.id}>{team.teamName}</Link>
+        <Link to={"/team/" + team.id}>{team.name}</Link>
       </td>
       <td>{team.matchesPlayed}</td>
-      <td>{team.matchesWon}</td>
-      <td>0</td>
-      <td>{team.matchesLost}</td>
-      <td>
-        <a href="#editEmployeeModal" className="edit" data-toggle="modal">
-          Edit &nbsp;
-        </a>
-        <a href="#deleteEmployeeModal" className="edit" data-toggle="modal">
-          Delete
-        </a>
-      </td>
+      <td>{team.mom}</td>
+      <td>{team.runsScored}</td>
+      <td>{team.wicketsTaken}</td>
+      <td>{team.umpired}</td>
     </tr>
   ));
 
@@ -50,33 +35,19 @@ const Home = () => {
           <div className="table-title">
             <div className="row">
               <div className="col-sm-6">
-                <h2>All Teams Information</h2>
-              </div>
-              <div className="col-sm-6">
-                <button
-                  className="btn btn-success"
-                  data-toggle="modal"
-                  onClick={() => setModalShow(true)}
-                >
-                  <span>Register New Team</span>
-                </button>
+                <h2>Team Information</h2>
               </div>
             </div>
           </div>
           <table className="table table-striped table-hover">
             <thead>
               <tr>
-                <th>
-                  <span className="custom-checkbox">
-                    <input type="checkbox" id="selectAll" />
-                    <label htmlFor="selectAll"></label>
-                  </span>
-                </th>
-                <th>Team Name</th>
+                <th>Player Name</th>
                 <th>Played</th>
-                <th>Won</th>
-                <th>Tie</th>
-                <th>Lost</th>
+                <th>MOM</th>
+                <th>Runs</th>
+                <th>Wickets</th>
+                <th>Umpiring</th>
               </tr>
             </thead>
             <tbody>{listItems}</tbody>
@@ -123,14 +94,10 @@ const Home = () => {
               </li>
             </ul>
           </div>
-          <AddTeamModalPopup
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default TeamPlayerInfo;

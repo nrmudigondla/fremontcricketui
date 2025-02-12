@@ -1,14 +1,25 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/footer/footer.component';
 import Header from './components/header/header.component';
 import Home from './components/home/home.component';
+import TeamPlayerInfo from './components/team-player-info/teamplayerinfo.component';
+import LiveScoring from './components/live-scoring/live-scoring.component';
+import SetUpMatchComponent from './components/setup-match/setup-match.component';
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      <Home></Home>
-      <Footer></Footer>
+      <BrowserRouter>
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/team/:id" element={<TeamPlayerInfo />} />
+          <Route path="live-scoring" element={<LiveScoring />} />
+          <Route path="setup-newmatch" element={<SetUpMatchComponent />} />
+        </Routes>
+        <Footer></Footer>
+      </BrowserRouter>
     </div>
   );
 }
