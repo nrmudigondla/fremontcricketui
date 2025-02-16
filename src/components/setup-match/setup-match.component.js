@@ -40,12 +40,12 @@ const SetUpMatchComponent = () => {
   }, []);
 
   return (
-    <div class="container form-box">
+    <div className="container form-box">
       <h1>Set Up New Match</h1>
       <form action="https://api.formbucket.com/f/c2K3QTQ" method="post">
-        <div class="form-group">
+        <div className="form-group">
           <label for="name">Hosting Team</label>
-          <select onChange={handleChange} name="hostTeamId" value={formData.hostTeamId} class="form-control">
+          <select onChange={handleChange} name="hostTeamId" value={formData.hostTeamId} className="form-control">
             <option>--Please Select--</option>
             {
                 teamData.map((option) => {
@@ -54,9 +54,9 @@ const SetUpMatchComponent = () => {
             }
           </select>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="name">Guest Team</label>
-          <select onChange={handleChange} name="guestTeamId" value={formData.guestTeamId} class="form-control">
+          <select onChange={handleChange} name="guestTeamId" value={formData.guestTeamId} className="form-control">
             <option>--Please Select--</option>
             {
                 teamData.map((option) => {
@@ -66,7 +66,7 @@ const SetUpMatchComponent = () => {
           </select>
         </div>
         <br />
-        <input class="btn btn-primary" onClick={handleSubmit} type="button" value="Submit" />
+        <input className="btn btn-primary" onClick={handleSubmit} type="button" value="Submit" />
       </form>
     </div>
   );

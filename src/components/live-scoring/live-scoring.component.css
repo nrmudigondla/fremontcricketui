@@ -1,0 +1,7 @@
+.matchCard {
+    cursor: pointer;
+}
+
+.card.active{
+    background-color: aquamarine;
+}
