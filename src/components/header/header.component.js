@@ -26,10 +26,28 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link" aria-current="page" href="#">
+              <li className="nav-item dropdown">
+                <Link
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   Teams & Players
                 </Link>
+                <ul class="dropdown-menu">
+                  <li>
+                    <Link class="dropdown-item" to={"/"}>
+                      All Teams
+                    </Link>
+                  </li>
+                  <li>
+                    <Link class="dropdown-item" to={"/all-players/"}>
+                      All Players
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li className="nav-item dropdown">
                 <Link
